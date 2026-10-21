@@ -1,0 +1,40 @@
+plugins { id 'com.android.application' }
+
+// >>> If your Apps Script /exec link ever changes, edit ONLY this line <<<
+def APP_URL = "https://script.google.com/macros/s/AKfycbx-iFh71k3iHvSHMoFRP4kKY86gleX__CDyj3s2Dn9r8UVpknzVe5noqWAw5l9bYZZ7PQ/exec"
+
+android {
+    namespace 'ph.sumovan.mmdocs'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'ph.sumovan.mmdocs'
+        minSdk 29
+        targetSdk 34
+        versionCode (project.findProperty('vc') ?: '1').toInteger()
+        versionName '1.0'
+        buildConfigField 'String', 'APP_URL', "\"${APP_URL}\""
+    }
+    buildFeatures { buildConfig true }
+    signingConfigs {
+        release {
+            storeFile file('sumovan.jks')
+            storePassword 'sumovan-mmdocs'
+            keyAlias 'sumovan'
+            keyPassword 'sumovan-mmdocs'
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+dependencies {
+    implementation 'androidx.webkit:webkit:1.11.0'
+    implementation 'androidx.core:core:1.13.1'
+}
