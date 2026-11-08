@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
       + "window.close=function(){SumoApp.exit()};"
       + "if(window===window.top){var T='Google Apps Script user';"
       + "var hide=function(){try{var l=document.querySelectorAll('div,span,p,table');for(var i=0;i<l.length;i++){var e=l[i],t=e.textContent||'';"
-      + "if(t.length<400&&t.indexOf(T)>-1){var x=e;while(x.parentElement&&x.parentElement!==document.body&&(x.parentElement.textContent||'').length<400)x=x.parentElement;"
+      + "if(t.length<400&&t.indexOf(T)>-1&&!e.querySelector('iframe')){var x=e;while(x.parentElement&&x.parentElement!==document.body&&(x.parentElement.textContent||'').length<400&&!x.parentElement.querySelector('iframe'))x=x.parentElement;"
       + "x.style.setProperty('display','none','important')}}}catch(e){}};"
       + "var mo=new MutationObserver(hide);mo.observe(document.documentElement,{childList:true,subtree:true});hide();setTimeout(hide,500);setTimeout(hide,2000)}"
       + "})();";
