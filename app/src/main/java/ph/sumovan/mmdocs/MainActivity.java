@@ -58,7 +58,13 @@ public class MainActivity extends Activity {
       + "document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[download]');"
       + "if(a&&/^(blob|data):/.test(a.href)){e.preventDefault();send(a)}},true);"
       + "window.print=function(){SumoApp.toast('To print: tap SAVE PDF, then choose OPEN / PRINT.')};"
-      + "window.close=function(){SumoApp.exit()};})();";
+      + "window.close=function(){SumoApp.exit()};"
+      + "if(window===window.top){var T='created by a Google Apps Script user';"
+      + "var hide=function(){try{var l=document.querySelectorAll('div,span,p,table');for(var i=0;i<l.length;i++){var e=l[i],t=e.textContent||'';"
+      + "if(t.length<400&&t.indexOf(T)>-1){var x=e;while(x.parentElement&&x.parentElement!==document.body&&(x.parentElement.textContent||'').length<400)x=x.parentElement;"
+      + "x.style.setProperty('display','none','important')}}}catch(e){}};"
+      + "var mo=new MutationObserver(hide);mo.observe(document.documentElement,{childList:true,subtree:true});hide();setTimeout(hide,500);setTimeout(hide,2000)}"
+      + "})();";
 
     private WebView web;
     private ProgressBar bar;
