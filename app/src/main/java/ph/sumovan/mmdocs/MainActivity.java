@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
       + "if(a&&/^(blob|data):/.test(a.href)){e.preventDefault();send(a)}},true);"
       + "window.print=function(){SumoApp.toast('To print: tap SAVE PDF, then choose OPEN / PRINT.')};"
       + "window.close=function(){SumoApp.exit()};"
-      + "if(window===window.top){var T='created by a Google Apps Script user';"
+      + "if(window===window.top){var T='Google Apps Script user';"
       + "var hide=function(){try{var l=document.querySelectorAll('div,span,p,table');for(var i=0;i<l.length;i++){var e=l[i],t=e.textContent||'';"
       + "if(t.length<400&&t.indexOf(T)>-1){var x=e;while(x.parentElement&&x.parentElement!==document.body&&(x.parentElement.textContent||'').length<400)x=x.parentElement;"
       + "x.style.setProperty('display','none','important')}}}catch(e){}};"
